@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public Transform thisTransform;
+  
     public Vector3 mousePos;
     public Vector3 worldPos;
-    public Vector3 playerPos;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +19,7 @@ public class Player : MonoBehaviour
     {
         mousePos = Input.mousePosition;
         worldPos = Camera.main.ScreenToWorldPoint(mousePos);
-        playerPos = new Vector3(worldPos.x, worldPos.y, thisTransform.position.z);
-        thisTransform.position = playerPos;
+        this.transform.position = worldPos;
+ 
     }
 }
