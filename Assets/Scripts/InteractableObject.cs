@@ -1,23 +1,21 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class InteractableObject : MonoBehaviour
 {
     public GameObject Object;
     public Text ObjectText;
     public string TextValue;
+    public UnityEvent clicked;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    
     private void OnMouseDown()
     {
-        Object.SetActive(false);
-        ObjectText.text = TextValue;
+        ObjectText.text = this.Object.name;
+        //Object.SetActive(false);
+       
+        clicked.Invoke();
     }
 
 }
